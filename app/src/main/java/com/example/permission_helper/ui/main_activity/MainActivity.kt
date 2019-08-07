@@ -4,12 +4,15 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import com.example.permission_helper.R
+import com.example.permission_helper.ui.BaseActivity
+import com.example.permission_helper.ui._dialogs.DialogExStyle
+import com.example.permission_helper.ui._dialogs.DialogExAlertDialog
 import com.example.testrecyclerviewdt.helper.PermissionHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : BaseActivity() {
 
     private val TAG = MainActivity::class.java.name
 
@@ -47,8 +50,17 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        txtHelloWorld.setOnClickListener {
+        testPermission.setOnClickListener {
             mPermissionHelper.checkPermission(PermissionHelper.PermissionType.CAMERA)
+        }
+
+        testDialogFragment.setOnClickListener {
+              showLoading()
+            // DialogExStyle().show(this, "")
+        }
+
+        testDialogFragment2.setOnClickListener {
+            DialogExAlertDialog.getInstance("Nghia").show(this, "fragment_alert")
         }
     }
 

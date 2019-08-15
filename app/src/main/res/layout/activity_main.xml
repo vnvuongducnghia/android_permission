@@ -6,36 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.main_activity.MainActivity">
 
-    <TextView
-        android:id="@+id/testPermission"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Permission"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/testDialogFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="DialogFragment1"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/testPermission"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/testDialogFragment2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="DialogFragment2"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/testDialogFragment"
+    <FrameLayout
+        android:id="@+id/flContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

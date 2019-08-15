@@ -9,20 +9,20 @@ import android.support.v7.widget.AppCompatEditText
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import com.example.permission_helper.ui._dialogs.DialogLoading
+import com.example.permission_helper.ui.dialog.DialogLoading
 import com.example.testrecyclerviewdt.util.NetworkUtils
 
-abstract class BaseActivity : AppCompatActivity(), BaseFragment.Callback  {
+abstract class BaseActivity : AppCompatActivity(), BaseFragment.Callback {
 
     /**
      * Variable
      */
-
+    var isAlive = false
     var isNetworkConnected: Boolean = false
     var isTouchDisable: Boolean = false
-    var disableDispatchTouchEvent: Boolean = false
+    var isDisableDispatchTouchEvent: Boolean = false
 
-    private lateinit var mLoading: DialogLoading
+    private var mLoading: DialogLoading? = null
 
     /**
      * Override
@@ -33,8 +33,18 @@ abstract class BaseActivity : AppCompatActivity(), BaseFragment.Callback  {
         isNetworkConnected = NetworkUtils.isNetworkConnected(applicationContext)
     }
 
+    override fun onResume() {
+        super.onResume()
+        isAlive = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        isAlive = false
+    }
+
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_DOWN && !disableDispatchTouchEvent) {
+        if (event.action == MotionEvent.ACTION_DOWN && !isDisableDispatchTouchEvent) {
             val view = currentFocus
             if (view != null && (view is AppCompatEditText || view is EditText)) {
                 val outRect = Rect()
@@ -54,15 +64,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseFragment.Callback  {
      */
 
     fun hideLoading() {
-        if (mLoading != null) {
-
-        }
+        mLoading?.dismiss()
     }
 
     fun showLoading() {
-        // hideLoading()
-        mLoading = DialogLoading()
-        mLoading.show(this,"dialog_loading")
+        hideLoading()
+        if (mLoading == null) {
+            mLoading = DialogLoading()
+        }
+        mLoading?.show(this, "dialog_loading")
     }
 
     /**
@@ -88,6 +98,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseFragment.Callback  {
     /**
      * Disposable
      */
+
+
 
     /**
      * Fragment listener

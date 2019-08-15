@@ -1,10 +1,9 @@
-package com.example.permission_helper.ui._dialogs
+package com.example.permission_helper.ui.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 
 
 class DialogExAlertDialog : BaseDialog() {

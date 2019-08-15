@@ -1,0 +1,69 @@
+- Architecture Blueprints.
+    - MVP. Ez use
+    - MVC. Don't use
+    - MVVM. Can use
+- Follow
+    - Code.
+    - Lifecycle app.
+    - Thread app.
+    - Synchronus, Asynchronus, Synchronized.
+    - Passing Data.
+        - Activity to Activity.
+        - Activity to fragment.
+        - Activity to dialog.
+        - Fragment to activity.
+        - Fragment to fragment.
+        - Fragment to dialog.
+        - UI to SharedPreference.
+        - UI to Database.
+        - UI to Server.
+        - UI to File.
+        - Server to UI.
+        - Server to Database.
+        - Server to File.
+        - Method to Method.
+        - Method to Variable.
+- UI
+    - Activity.
+    - Fragment.
+    - Dialog.
+    - Loading.
+    - RecyclerView.
+    - CustomView.
+    - Window.
+    - View and touch, tap, double tap, long press, drag, down, up, move, scroll, ...
+
+- Touch, MutilTouch
+    - DispatchTouchEvent.
+    - OnTouchEvent.
+
+- Keyboard
+- Network
+    - Check Network.
+    - Download image.
+    - Call API.
+- Database
+    - SQLite.
+    - SQLRoom.
+    - SharedPreference.
+- Permission.
+- Take Picture.
+    - Camera.
+    - Save Image.
+    - Read Image.
+- Utils.
+    - LogUtils.
+    - ScreenUtils.
+- Base.
+    - BaseActivity.
+    - BaseFragment.
+    - BaseDialog.
+    - Interface Listener.
+    - Interface.
+        - Sub Interface.
+
+/**
+ * Init variable
+ */
+
+/*Animation Fragment*/

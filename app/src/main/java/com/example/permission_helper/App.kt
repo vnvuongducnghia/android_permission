@@ -3,7 +3,9 @@ package com.example.permission_helper
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.support.multidex.MultiDex
 import com.example.permission_helper.data.source.local.AppDataBase
+import com.example.permission_helper.util.CommonUtils
 import com.example.testrecyclerviewdt.helper.SharedPreferencesHelper
 
 @SuppressLint("Registered")
@@ -13,6 +15,7 @@ class App : Application() {
 
     companion object {
         lateinit var instance: App
+        private var androidId:String =""
     }
 
     override fun onCreate() {
@@ -24,13 +27,34 @@ class App : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
+        MultiDex.install(this)
     }
 
+    /*SharedPreference*/
     fun getSharedPre(): SharedPreferencesHelper {
         return mSharedHelper
     }
 
+    /*Database*/
     fun getDatabase(): AppDataBase {
         return mDb
     }
+
+    /*AndroidID*/
+    private fun getAndroidID() {
+        try {
+            androidId = CommonUtils.getDeviceId(App.instance)
+        } catch (e: Exception) {
+            var androidIdNotFound = mSharedHelper.getString(Constant.ANDROID_ID_NOT_FOUND, "")
+            if (androidIdNotFound.isNullOrEmpty()) {
+                androidIdNotFound = System.currentTimeMillis().toString() + "L"
+                mSharedHelper.getString(Constant.ANDROID_ID_NOT_FOUND, androidIdNotFound)
+            }
+            androidId = androidIdNotFound + ""
+        }
+    }
+
+
+
+
 }

@@ -1,0 +1,8 @@
+- Loading style array bitmap by animation
+- Loading style Spinner
+- Loading style Progress.
+- Loading at button.
+- Loading at imageview.
+- Loading at textview.
+- Loading at recycleView.
+- Loading at ...

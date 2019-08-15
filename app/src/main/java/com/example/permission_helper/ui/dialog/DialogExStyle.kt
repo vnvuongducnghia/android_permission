@@ -1,4 +1,4 @@
-package com.example.permission_helper.ui._dialogs
+package com.example.permission_helper.ui.dialog
 
 import android.app.Dialog
 import android.os.Bundle

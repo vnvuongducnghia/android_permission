@@ -1,18 +1,22 @@
-package com.example.permission_helper.ui._dialogs
+package com.example.permission_helper.ui.dialog
 
+import android.animation.ValueAnimator
 import android.app.Dialog
+import android.content.Context
 import android.content.DialogInterface
-import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.FragmentManager
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import android.view.animation.DecelerateInterpolator
 import com.example.permission_helper.R
 import kotlinx.android.synthetic.main.dialog_loading.*
 
 
-class DialogLoading : BaseDialog() {
+class DialogLoadingProgress : BaseDialog() {
 
     private var startedShowing = false
     private var mStartMillisecond = 0L
@@ -32,7 +36,6 @@ class DialogLoading : BaseDialog() {
             dialog.window!!.attributes.dimAmount = 0.5f
             dialog.window!!.setBackgroundDrawableResource(R.drawable.background_transparent)
             dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
-
         }
         return dialog
     }
@@ -43,7 +46,23 @@ class DialogLoading : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ivLoading?.post { (ivLoading?.drawable as AnimationDrawable?)?.start() }
+        // Hide Image
+        ivLoading.visibility = View.GONE
+
+        // Show ProgressBar.
+        progressBar.visibility = View.VISIBLE
+        val anim = ValueAnimator.ofFloat(0f, 100f)
+        anim.addUpdateListener { valueAnimator ->
+            val slideOffset = valueAnimator.animatedValue as Float
+            val slideOffsetInt = slideOffset.toInt()
+            progressBar.progress = slideOffsetInt
+            if (slideOffsetInt == 100) {
+                Handler().postDelayed({ dismiss() }, 500)
+            }
+        }
+        anim.interpolator = DecelerateInterpolator()
+        anim.duration = 5000
+        anim.start()
     }
 
     /**
@@ -54,23 +73,10 @@ class DialogLoading : BaseDialog() {
         return startedShowing
     }
 
-    override fun show(fm: FragmentManager?, tag: String?) {
-        mStartMillisecond = System.currentTimeMillis()
-        startedShowing = false
-        mStopMillisecond = java.lang.Long.MAX_VALUE
-        Handler().postDelayed({
-            if (mStopMillisecond > System.currentTimeMillis())
-                showDialogAfterDelay(fm, tag)
-        }, mDelayMillisecond.toLong())
-    }
-
-    private fun showDialogAfterDelay(fm: FragmentManager?, tag: String?) {
-        try {
-            startedShowing = true
-            super.show(fm, tag)
-        } catch (e: IllegalStateException) {
-            Log.e("Error", e.message)
-        }
+    fun show(context: Context?) {
+        startedShowing = true
+        val tag = "dialog_loading_progress"
+        show(context, tag)
     }
 
     /**

@@ -3,7 +3,7 @@ package com.example.permission_helper.util
 import android.util.Log
 import com.example.permission_helper.BuildConfig
 
-object AppLog {
+object LogUtils {
     fun d(tag: String, msg: String) {
         if (BuildConfig.DEBUG) {
             Log.d(tag, msg)

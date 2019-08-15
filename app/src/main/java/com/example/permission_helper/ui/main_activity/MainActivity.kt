@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.example.permission_helper.R
 import com.example.permission_helper.ui.BaseActivity
-import com.example.permission_helper.ui._dialogs.DialogExStyle
-import com.example.permission_helper.ui._dialogs.DialogExAlertDialog
+import com.example.permission_helper.ui.BaseFragment
+import com.example.permission_helper.ui.demo_recycler_view.RecyclerFragment
 import com.example.testrecyclerviewdt.helper.PermissionHelper
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseActivity() {
@@ -24,7 +23,7 @@ class MainActivity : BaseActivity() {
 
         // Check permission
         mPermissionHelper = PermissionHelper(this)
-        mPermissionHelper.setOnPermissionListener(object : PermissionHelper.OnPermissionListener {
+        mPermissionHelper.setOnPermissionListener(object : PermissionHelper.PermissionListener {
             override fun onGranted(currentType: PermissionHelper.PermissionType?) {
                 println("MainActivity.onGranted tat ca da duoc dang ky.")
             }
@@ -50,17 +49,15 @@ class MainActivity : BaseActivity() {
             }
         })
 
-        testPermission.setOnClickListener {
-            mPermissionHelper.checkPermission(PermissionHelper.PermissionType.CAMERA)
-        }
+        // mPermissionHelper.checkPermission(PermissionHelper.PermissionType.CAMERA)
+        BaseFragment.addFragment(this, RecyclerFragment())
 
-        testDialogFragment.setOnClickListener {
-              showLoading()
-            // DialogExStyle().show(this, "")
-        }
+    }
 
-        testDialogFragment2.setOnClickListener {
-            DialogExAlertDialog.getInstance("Nghia").show(this, "fragment_alert")
+    override fun onResume() {
+        super.onResume()
+        if (supportFragmentManager.findFragmentById(R.id.flContent) == null) {
+            BaseFragment.addFragment(this, RecyclerFragment())
         }
     }
 

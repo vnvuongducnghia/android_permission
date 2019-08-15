@@ -26,7 +26,7 @@ class PermissionHelper {
     /* Init Permission helper --- */
     private var mActivity: Activity? = null
     private var mFragment: Fragment? = null
-    private var mOnPermissionListener: OnPermissionListener? = null
+    private var mOnPermissionListener: PermissionListener? = null
     private var mCurrentType: PermissionType? = null
     private var mSharedPre: SharedPreferences? = null
     private val mPackageName: String
@@ -61,7 +61,7 @@ class PermissionHelper {
     // Top Methods
     // -------------
 
-    fun setOnPermissionListener(onPermissionListener: OnPermissionListener) {
+    fun setOnPermissionListener(onPermissionListener: PermissionListener) {
         mOnPermissionListener = onPermissionListener
     }
 
@@ -313,7 +313,7 @@ class PermissionHelper {
         CAMERA, GALLERY, READ_CONTACTS, LOCATION, CALL_PHONE;
     }
 
-    interface OnPermissionListener {
+    interface PermissionListener {
         fun onGranted(currentType: PermissionType?)
         fun onDenied()
         fun onCustomDialog()

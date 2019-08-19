@@ -10,7 +10,7 @@ import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import com.example.permission_helper.ui.dialog.DialogLoading
-import com.example.testrecyclerviewdt.util.NetworkUtils
+import com.example.permission_helper.util.NetworkUtils
 
 abstract class BaseActivity : AppCompatActivity(), BaseFragment.Callback {
 

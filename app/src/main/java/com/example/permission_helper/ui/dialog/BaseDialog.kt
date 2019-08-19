@@ -8,7 +8,7 @@ import com.example.permission_helper.ui.BaseActivity
 
 abstract class BaseDialog() : DialogFragment() {
 
-    var baseActivity: BaseActivity? = null
+    private var baseActivity: BaseActivity? = null
 
     /**
      * Attach

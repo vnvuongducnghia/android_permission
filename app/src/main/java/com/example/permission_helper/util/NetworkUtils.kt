@@ -1,4 +1,4 @@
-package com.example.testrecyclerviewdt.util
+package com.example.permission_helper.util
 
 import android.annotation.SuppressLint
 import android.content.Context

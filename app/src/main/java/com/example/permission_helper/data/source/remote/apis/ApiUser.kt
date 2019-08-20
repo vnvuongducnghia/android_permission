@@ -1,4 +1,4 @@
-package com.example.permission_helper.data.source.remote.api_object
+package com.example.permission_helper.data.source.remote.apis
 
 import com.example.permission_helper.data.model.User
 import com.example.permission_helper.data.source.remote.api_setting.ApiLink

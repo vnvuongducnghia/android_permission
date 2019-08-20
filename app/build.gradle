@@ -45,6 +45,8 @@ dependencies {
     // Fan Rx2
     implementation 'com.amitshekhar.android:rx2-android-networking:1.0.1'
 
+    // Room Database
+    implementation 'androidx.room:room-runtime:2.1.0'
 
 
 }

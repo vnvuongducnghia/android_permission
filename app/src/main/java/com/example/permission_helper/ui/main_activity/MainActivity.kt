@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.example.permission_helper.R
+import com.example.permission_helper.data.source.iData
+import com.example.permission_helper.data.source.local.LocalData
 import com.example.permission_helper.ui.BaseActivity
 import com.example.permission_helper.ui.BaseFragment
 import com.example.permission_helper.ui.demo_recycler_view.RecyclerFragment
@@ -51,6 +53,19 @@ class MainActivity : BaseActivity() {
 
         // mPermissionHelper.checkPermission(PermissionHelper.PermissionType.CAMERA)
         BaseFragment.addFragment(this, RecyclerFragment())
+
+        // Test data base
+        val database = LocalData.getInstance(this)
+        database.taskDao().getAll(object : iData.iLoadCallback {
+            override fun onLoaded(any: Any) {
+
+            }
+
+            override fun onDataNotAvailable() {
+
+            }
+
+        })
 
     }
 

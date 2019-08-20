@@ -4,14 +4,14 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
-import com.example.permission_helper.data.source.local.AppDataBase
+import com.example.permission_helper.data.source.local.LocalData
 import com.example.permission_helper.util.CommonUtils
 import com.example.testrecyclerviewdt.helper.SharedPreferencesHelper
 
 @SuppressLint("Registered")
 class App : Application() {
     private lateinit var mSharedHelper: SharedPreferencesHelper
-    private lateinit var mDb: AppDataBase
+    private lateinit var mDb: LocalData
 
     companion object {
         lateinit var instance: App
@@ -22,7 +22,7 @@ class App : Application() {
         super.onCreate()
         instance = this
         mSharedHelper = SharedPreferencesHelper(this)
-        mDb = AppDataBase.getInstance(this)
+        mDb = LocalData.getInstance(this)
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -36,7 +36,7 @@ class App : Application() {
     }
 
     /*Database*/
-    fun getDatabase(): AppDataBase {
+    fun getDatabase(): LocalData {
         return mDb
     }
 

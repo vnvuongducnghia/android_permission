@@ -3,8 +3,8 @@ package com.example.permission_helper.data.source.remote.api_setting
 import android.content.Context
 import android.util.Log
 import com.androidnetworking.error.ANError
-import com.example.permission_helper.data.source.remote.api_setting.response.BaseModel
-import com.example.permission_helper.data.source.remote.api_setting.response.ErrorData
+import com.example.permission_helper.data.source.remote.api_setting.base_response.BaseModel
+import com.example.permission_helper.data.source.remote.api_setting.base_response.ErrorData
 import com.example.permission_helper.util.NetworkUtils
 import com.google.gson.JsonSyntaxException
 import io.reactivex.Observable

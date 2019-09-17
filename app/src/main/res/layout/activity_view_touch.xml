@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view_touch.ViewTouch">
+
+
+    <com.example.permission_helper.ui.view_touch.flCustom
+            android:id="@+id/flClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.example.permission_helper.ui.view_touch.flCustomB
+                android:id="@+id/flB"
+                android:layout_width="324dp"
+                android:layout_height="281dp"
+                android:background="@color/orange"
+                android:visibility="gone">
+
+        </com.example.permission_helper.ui.view_touch.flCustomB>
+
+        <FrameLayout
+                android:id="@+id/flC"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:visibility="gone"
+                android:background="@color/gray"></FrameLayout>
+
+
+        <com.example.permission_helper.ui.view_touch.ButtonA
+                android:layout_width="300dp"
+                android:id="@+id/btnA"
+                android:layout_height="300dp"></com.example.permission_helper.ui.view_touch.ButtonA>
+    </com.example.permission_helper.ui.view_touch.flCustom>
+
+</android.support.constraint.ConstraintLayout>

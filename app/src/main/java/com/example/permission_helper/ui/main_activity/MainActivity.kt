@@ -1,87 +1,100 @@
 package com.example.permission_helper.ui.main_activity
 
-import android.content.DialogInterface
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import com.example.permission_helper.R
-import com.example.permission_helper.data.source.iData
-import com.example.permission_helper.data.source.local.LocalData
 import com.example.permission_helper.ui.BaseActivity
-import com.example.permission_helper.ui.BaseFragment
-import com.example.permission_helper.ui.demo_recycler_view.RecyclerFragment
-import com.example.testrecyclerviewdt.helper.PermissionHelper
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseActivity() {
 
     private val TAG = MainActivity::class.java.name
 
-    private lateinit var mPermissionHelper: PermissionHelper
+    val layoutParam = ViewGroup.LayoutParams(
+        ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.WRAP_CONTENT
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Check permission
-        mPermissionHelper = PermissionHelper(this)
-        mPermissionHelper.setOnPermissionListener(object : PermissionHelper.PermissionListener {
-            override fun onGranted(currentType: PermissionHelper.PermissionType?) {
-                println("MainActivity.onGranted tat ca da duoc dang ky.")
-            }
+        val btnDataToActivity = Button(this)
+        btnDataToActivity.layoutParams = layoutParam
+        btnDataToActivity.text = "Send Data To Activity"
+        btnDataToActivity.setOnClickListener {
+            val intent = Intent(this, Activity2::class.java)
+            intent.putExtra("name_abc", "Name ABC")
+            startActivity(intent)
+        }
+        listButton.addView(btnDataToActivity)
 
-            override fun onDenied() {
-                println("MainActivity.onDenied Da tu choi")
-            }
+        val btnResultActivity = Button(this)
+        btnResultActivity.layoutParams = layoutParam
+        btnResultActivity.text = "Activity result"
+        btnResultActivity.setOnClickListener {
+            val intent = Intent(this, Activity2::class.java)
+            val bundle = Bundle()
+            bundle.putInt("name_123", 123456)
+            intent.putExtra("bundle_123", bundle)
+            startActivityForResult(intent, 111)
+        }
+        listButton.addView(btnResultActivity)
 
-            override fun onCustomDialog() {
-                val activity = mPermissionHelper.getActivity()
-                if (activity != null) {
-                    val builder = AlertDialog.Builder(activity)
-                    builder.setMessage("Open Setting")
-                        .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, id ->
-                            mPermissionHelper.showSetting()
-                        })
-                        .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
-                            // User cancelled the dialog
-                            dialog.dismiss()
-                        })
-                    builder.create().show()
-                }
-            }
-        })
+        val btnImplicitIntents = Button(this)
+        btnImplicitIntents.layoutParams = layoutParam
+        btnImplicitIntents.text = "ImplicitIntents"
+        btnImplicitIntents.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("http://www.google.com")
+            startActivity(intent)
+        }
+        listButton.addView(btnImplicitIntents)
 
-        // mPermissionHelper.checkPermission(PermissionHelper.PermissionType.CAMERA)
-        BaseFragment.addFragment(this, RecyclerFragment())
-
-        // Test data base
-        val database = LocalData.getInstance(this)
-        database.taskDao().getAll(object : iData.iLoadCallback {
-            override fun onLoaded(any: Any) {
-
-            }
-
-            override fun onDataNotAvailable() {
-
-            }
-
-        })
-
+        val btnPermissionActivity = Button(this)
+        btnPermissionActivity.layoutParams = layoutParam
+        btnPermissionActivity.text = "Permission Activity"
+        btnPermissionActivity.setOnClickListener {
+            val intent = Intent(this, PermissionLibraryActivity::class.java)
+            startActivity(intent)
+        }
+        listButton.addView(btnPermissionActivity)
     }
 
     override fun onResume() {
         super.onResume()
-        if (supportFragmentManager.findFragmentById(R.id.flContent) == null) {
-            BaseFragment.addFragment(this, RecyclerFragment())
-        }
+        println("MainActivity.onResume")
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        mPermissionHelper.checkResult(requestCode, permissions, grantResults)
+    override fun onStop() {
+        super.onStop()
+        println("MainActivity.onStop")
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("MainActivity.onDestroy")
+    }
+
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == 111) {
+            if (data != null) {
+                Toast.makeText(
+                    this,
+                    "data = ${data.getIntExtra("activity2_123", -1)}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
+
 }

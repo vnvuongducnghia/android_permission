@@ -4,17 +4,19 @@
     - MVVM. Can use
 - Follow
     - Code.
+        - Effective Java for Android
+        - Enum: https://guides.codepath.com/android/Replacing-Enums-with-Enumerated-Annotations
     - Lifecycle app.
-    - Thread app.
-    - Synchronus, Asynchronus, Synchronized.
+    - Thread app. Hiểu rồi nhưng chưa thực hành.
+    - Synchronus, Asynchronus, Synchronized. Chua thục hành
     - Passing Data.
-        - Activity to Activity.
-        - Activity to fragment.
-        - Activity to dialog.
-        - Fragment to activity.
-        - Fragment to fragment.
-        - Fragment to dialog.
-        - UI to SharedPreference.
+        - Activity to Activity. Intent, ResultCode + RequestCode
+        - Activity to fragment. Bundle
+        - Activity to dialog. Bundle
+        - Fragment to activity. Variable
+        - Fragment to fragment. CallBack
+        - Fragment to dialog. CallBack
+        - UI to SharedPreference. OK.
         - UI to Database.
         - UI to Server.
         - UI to File.
@@ -24,33 +26,60 @@
         - Method to Method.
         - Method to Variable.
 - UI
-    - Activity.
-    - Fragment.
-    - Dialog.
-    - Loading.
-    - RecyclerView.
+    - Activity. OK
+    - Fragment. OK
+    - Dialog. OK
+    - Loading. OK
+    - RecyclerView. OK
     - CustomView.
     - Window.
-    - View and touch, tap, double tap, long press, drag, down, up, move, scroll, ...
 
-- Touch, MutilTouch
-    - DispatchTouchEvent.
-    - OnTouchEvent.
+- View and touch, tap, double tap, long press, drag, down, up, move, scroll, ...
+https://guides.codepath.com/android/Gestures-and-Touch-Events#understanding-touch-events
+- Gesture Detectors: Hoạt động được nhờ vào MotionEvent ở touchEvents. . OK
+- Touch Events: . OK
+    - dispatchTouchEvent() (t,f,s)
+    - onInterceptTouchEvent() (t,f,s)
+    - onTouchListener.onTouch() (t,f,s)
+    - onTouchEvent() (t,f,s)
 
-- Keyboard
+    - setOnTouchListener() (t,f,s)
+    - setOnClickListener()
+
+- Keyboard. OK
 - Network
-    - Check Network.
+    - Check Network. OK
     - Download image.
     - Call API.
+        - https://guides.codepath.com/android/Troubleshooting-API-calls
+        - Chuck
+- Chat.
+- LiveStream.
+- Banks
+    - Authentication.
+    - Token.
+    - Ma hoa, giai ma.
+- AndroidX.
+- AndroidRx.
+- Debug.
+    - https://guides.codepath.com/android/Debugging-Exceptions-within-your-App
+- Testing.
 - Database
     - SQLite.
     - SQLRoom.
-    - SharedPreference.
-- Permission.
+        - Add library to gradle.
+        - Create AppExecutors.
+        - Create class Table to add @Entity(tableName = "tasks").
+        - Create interface to request database.
+        - Create abstract class DataBase : RoomDatabase()
+
+
+    - SharedPreference. OK
+- Permission. OK
 - Take Picture.
-    - Camera.
-    - Save Image.
-    - Read Image.
+    - Camera -> ByteArray -> Bitmap -> File -> SdCard
+                                    -> ImageView
+                                    -> Base64_Json -> Server.
 - Utils.
     - LogUtils.
     - ScreenUtils.

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -46,7 +46,9 @@ dependencies {
     implementation 'com.amitshekhar.android:rx2-android-networking:1.0.1'
 
     // Room Database
-    implementation 'androidx.room:room-runtime:2.1.0'
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
 
+    
 
 }

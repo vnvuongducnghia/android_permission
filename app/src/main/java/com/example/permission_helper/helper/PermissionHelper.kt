@@ -1,4 +1,4 @@
-package com.example.testrecyclerviewdt.helper
+package com.example.permission_helper.helper
 
 import android.Manifest
 import android.app.Activity

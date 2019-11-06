@@ -64,9 +64,11 @@ https://guides.codepath.com/android/Gestures-and-Touch-Events#understanding-touc
 - Debug.
     - https://guides.codepath.com/android/Debugging-Exceptions-within-your-App
 - Testing.
+    - Các action tác động vào nó.
+    - Các action của nó tác động vào các đối tượng khác.
 - Database
     - SQLite.
-    - SQLRoom.
+    - SQLRoom. OK
         - Add library to gradle.
         - Create AppExecutors.
         - Create class Table to add @Entity(tableName = "tasks").
@@ -76,7 +78,7 @@ https://guides.codepath.com/android/Gestures-and-Touch-Events#understanding-touc
 
     - SharedPreference. OK
 - Permission. OK
-- Take Picture.
+- Take Picture. OK
     - Camera -> ByteArray -> Bitmap -> File -> SdCard
                                     -> ImageView
                                     -> Base64_Json -> Server.
@@ -84,12 +86,12 @@ https://guides.codepath.com/android/Gestures-and-Touch-Events#understanding-touc
     - LogUtils.
     - ScreenUtils.
 - Base.
-    - BaseActivity.
-    - BaseFragment.
-    - BaseDialog.
-    - Interface Listener.
-    - Interface.
-        - Sub Interface.
+    - BaseActivity. OK
+    - BaseFragment. OK
+    - BaseDialog. OK
+    - Interface Listener. OK
+    - Interface. OK
+        - Sub Interface. OK
 
 /**
  * Init variable

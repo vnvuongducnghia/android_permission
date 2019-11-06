@@ -6,7 +6,7 @@ import android.content.Context
 import android.support.multidex.MultiDex
 import com.example.permission_helper.data.source.local.LocalData
 import com.example.permission_helper.util.CommonUtils
-import com.example.testrecyclerviewdt.helper.SharedPreferencesHelper
+import com.example.permission_helper.helper.SharedPreferencesHelper
 
 @SuppressLint("Registered")
 class App : Application() {

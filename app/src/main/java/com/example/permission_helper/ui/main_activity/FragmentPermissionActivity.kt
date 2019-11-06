@@ -7,7 +7,7 @@ import android.support.v7.app.AlertDialog
 import com.example.permission_helper.R
 import com.example.permission_helper.ui.BaseFragment
 import com.example.permission_helper.ui.demo_recycler_view.RecyclerFragment
-import com.example.testrecyclerviewdt.helper.PermissionHelper
+import com.example.permission_helper.helper.PermissionHelper
 
 class FragmentPermissionActivity : AppCompatActivity() {
 

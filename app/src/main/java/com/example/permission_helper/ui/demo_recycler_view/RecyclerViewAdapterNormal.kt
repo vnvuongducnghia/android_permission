@@ -9,13 +9,17 @@ import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.Cont
 
 class RecyclerViewAdapterNormal(var data: List<Contact>) : RecyclerView.Adapter<ContactViewHolder>() {
 
-    override fun onCreateViewHolder(p0: ViewGroup, position: Int): ContactViewHolder {
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ContactViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.contact_view_holder, p0, false)
-//        // Set item click
-//        view.setOnClickListener {
-//            mOnClickListener.onItemClick(view, position)
-//        }
-        return ContactViewHolder(view)
+        val holder = ContactViewHolder(view)
+        // Set item click
+       /* view.setOnClickListener {
+            val position = holder.adapterPosition
+            if (position != RecyclerView.NO_POSITION){
+                mOnClickListener.onItemClick(holder, position, data[position])
+            }
+        }*/
+        return holder
     }
 
     override fun getItemCount(): Int {
@@ -63,6 +67,7 @@ class RecyclerViewAdapterNormal(var data: List<Contact>) : RecyclerView.Adapter<
      * On click listener
      */
     interface OnClickListener {
+        fun onItemClick(holder: ContactViewHolder, position: Int, message: Any = "")
         fun onItemClick(view: View, position: Int)
         fun onItemLongClick(view: View, position: Int) {}
     }

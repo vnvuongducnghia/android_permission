@@ -3,7 +3,7 @@ package com.example.permission_helper.ui.demo_recycler_view
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearSnapHelper
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +13,9 @@ import com.example.permission_helper.R
 import com.example.permission_helper.ui.BaseFragment
 import com.example.permission_helper.ui.demo_recycler_view.item_decoration.CanvasDrawLine
 import com.example.permission_helper.ui.demo_recycler_view.item_decoration.DrawableDrawLine
+import com.example.permission_helper.ui.demo_recycler_view.item_decoration.ItemOffsetDecoration
+import com.example.permission_helper.ui.demo_recycler_view.item_decoration.MarginItemOffsets
+import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.ContactViewHolder
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.fragment_recycler.*
 
@@ -64,24 +67,26 @@ class RecyclerFragment : BaseFragment() {
     }
 
     private fun recyclerViewAdapter() {
-        /*adapterNormal = RecyclerViewAdapterNormal(contacts!!)
-        rvContacts.adapter = adapterNormal*/
+        adapterNormal = RecyclerViewAdapterNormal(contacts!!)
+        rvContacts.adapter = adapterNormal
 
-        adapterType = RecyclerViewAdapterType(listAny)
-        rvContacts.adapter = adapterType
+        /*adapterType = RecyclerViewAdapterType(listAny)
+        rvContacts.adapter = adapterType*/
     }
 
     private fun recyclerViewLayout() {
         /*GridLayoutManager*/
-        // rvContacts.layoutManager = GridLayoutManager(this.context, 2, GridLayoutManager.HORIZONTAL, false)
-        // rvContacts.layoutManager = LinearLayoutManager(this)
+        rvContacts.layoutManager =
+            GridLayoutManager(this.context, 2, GridLayoutManager.HORIZONTAL, false)
+
 
         /*LinearLayoutManager*/
-        rvContacts.layoutManager = LinearLayoutManager(
-            this.context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
+//        rvContacts.layoutManager = LinearLayoutManager(this)
+//        rvContacts.layoutManager = LinearLayoutManager(
+//            this.context,
+//            LinearLayoutManager.VERTICAL,
+//            false
+//        )
     }
 
     private fun recyclerViewEffect() {
@@ -94,8 +99,8 @@ class RecyclerFragment : BaseFragment() {
         snapHelper.attachToRecyclerView(rvContacts)
 
         /*RecyclerView ItemDecoration*/
-        // rvContacts.addItemDecoration(ItemOffsetDecoration(100))
-        rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
+        // rvContacts.addItemDecoration(ItemOffsetDecoration(100)) // Whit GridLayoutManager
+        //    rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
         rvContacts.addItemDecoration(CanvasDrawLine(Color.LTGRAY, 40f))
         // rvContacts.addItemDecoration(MarginItemOffsets(100))
     }
@@ -113,6 +118,10 @@ class RecyclerFragment : BaseFragment() {
                     else -> {
                     }
                 }
+            }
+
+            override fun onItemClick(holder: ContactViewHolder, position: Int, message: Any) {
+
             }
 
             override fun onItemClick(view: View, position: Int) {

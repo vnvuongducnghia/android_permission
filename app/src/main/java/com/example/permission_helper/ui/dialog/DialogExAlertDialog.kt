@@ -12,7 +12,7 @@ class DialogExAlertDialog : BaseDialog() {
         fun getInstance(title: String): DialogExAlertDialog {
             val dialog = DialogExAlertDialog()
             val bundle = Bundle()
-            bundle.putString("title", title);
+            bundle.putString("title", title)
             dialog.arguments = bundle
             return dialog
         }
@@ -23,14 +23,12 @@ class DialogExAlertDialog : BaseDialog() {
         val alertDialogBuilder = AlertDialog.Builder(activity)
         alertDialogBuilder.setTitle(title)
         alertDialogBuilder.setMessage("Are you sure?")
-        alertDialogBuilder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+        alertDialogBuilder.setPositiveButton("OK", { dialog, which ->
             // on success
         })
-        alertDialogBuilder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
-            if (dialog != null) {
-                dialog.dismiss()
-            }
-        })
+        alertDialogBuilder.setNegativeButton("Cancel") { dialog, which ->
+            dialog?.dismiss()
+        }
         return alertDialogBuilder.create()
     }
 }

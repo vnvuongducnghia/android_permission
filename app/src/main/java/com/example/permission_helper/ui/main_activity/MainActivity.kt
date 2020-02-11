@@ -61,8 +61,8 @@ class MainActivity : BaseActivity() {
         btnPermissionActivity.layoutParams = layoutParam
         btnPermissionActivity.text = "Permission Activity"
         btnPermissionActivity.setOnClickListener {
-            val intent = Intent(this, PermissionLibraryActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, PermissionLibraryActivity::class.java)
+//            startActivity(intent)
         }
         listButton.addView(btnPermissionActivity)
     }

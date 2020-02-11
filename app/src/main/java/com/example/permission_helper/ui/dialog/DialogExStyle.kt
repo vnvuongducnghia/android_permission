@@ -6,11 +6,12 @@ import android.view.*
 import android.widget.RelativeLayout
 import com.example.permission_helper.R
 import com.example.testrecyclerviewdt.util.ScreenUtils
+import kotlinx.android.synthetic.main.fragment_recycler.*
 
 class DialogExStyle:BaseDialog() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = Dialog(context!!, R.style.DialogTheme)
+        val dialog = Dialog(context!!, R.style.fullScreenDialog)
         val root = RelativeLayout(activity)
         root.layoutParams =
             ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -27,8 +28,8 @@ class DialogExStyle:BaseDialog() {
         }
         return dialog
     }
-//
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        return inflater.inflate(R.layout.dialog_loading_green, container, false);
-//    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.dialog_loading_green, container, false);
+    }
 }

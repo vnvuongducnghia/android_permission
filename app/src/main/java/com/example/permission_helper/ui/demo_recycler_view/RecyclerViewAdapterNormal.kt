@@ -50,6 +50,7 @@ class RecyclerViewAdapterNormal(var data: List<Contact>) : RecyclerView.Adapter<
 //        // Message long click
 //        p0.btnMessage.setOnLongClickListener {
 //            mOnClickListener.onItemLongClick(p0.btnMessage, position)
+//            mOnClickListener.onBClick( position)
 //            true
 //        }
 
@@ -63,20 +64,21 @@ class RecyclerViewAdapterNormal(var data: List<Contact>) : RecyclerView.Adapter<
         return data[p1]
     }
 
-    /**
-     * On click listener
-     */
+
+    //region On click listener
     interface OnClickListener {
         fun onItemClick(holder: ContactViewHolder, position: Int, message: Any = "")
         fun onItemClick(view: View, position: Int)
         fun onItemLongClick(view: View, position: Int) {}
+        fun onAClick(position: Int){}
+        fun onBClick(position: Int){}
     }
 
-    /*Set onClickListener*/
     private lateinit var mOnClickListener: OnClickListener
 
     fun setOnClickListener(clickListener: OnClickListener) {
         mOnClickListener = clickListener
     }
+    //endregion
 
 }

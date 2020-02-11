@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import com.example.permission_helper.ui.BaseActivity
 
-abstract class BaseDialog : DialogFragment() {
+abstract class BaseDialogNew : DialogFragment() {
 
     private var baseActivity: BaseActivity? = null
 

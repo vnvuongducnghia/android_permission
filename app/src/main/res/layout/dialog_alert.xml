@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="24dp"
-            android:background="@color/colorLineDialog" />
+            android:background="@color/green" />
 
         <LinearLayout
             android:id="@+id/llButtons"
@@ -72,7 +72,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/ripple_btn_white"
+                android:background="@drawable/avatar"
                 android:lineSpacingExtra="8sp"
                 android:textAllCaps="false"
                 android:textColor="#538b81"
@@ -86,14 +86,14 @@
                 android:id="@+id/vDivider2"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="@color/colorLineDialog" />
+                android:background="@color/red" />
 
             <Button
                 android:id="@+id/btnPositive"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/ripple_btn_white"
+                android:background="@drawable/avatar"
                 android:lineSpacingExtra="8sp"
                 android:textAllCaps="false"
                 android:textColor="#538b81"

@@ -49,6 +49,10 @@ class FragmentPermissionActivity : AppCompatActivity() {
 
         // mPermissionHelper.checkPermission(PermissionHelper.PermissionType.CAMERA)
         BaseFragment.addFragment(this, RecyclerFragment())
+        
+        ab
+        as
+                dbas
     }
 
     override fun onResume() {

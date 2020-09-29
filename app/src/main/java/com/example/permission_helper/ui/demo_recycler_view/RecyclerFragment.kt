@@ -4,6 +4,7 @@ package com.example.permission_helper.ui.demo_recycler_view
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
 import android.util.Log
 import android.view.LayoutInflater
@@ -76,17 +77,17 @@ class RecyclerFragment : BaseFragment() {
 
     private fun recyclerViewLayout() {
         /*GridLayoutManager*/
-        rvContacts.layoutManager =
-            GridLayoutManager(this.context, 2, GridLayoutManager.HORIZONTAL, false)
+//        rvContacts.layoutManager =
+//            GridLayoutManager(this.context, 2, GridLayoutManager.HORIZONTAL, false)
 
 
         /*LinearLayoutManager*/
-//        rvContacts.layoutManager = LinearLayoutManager(this)
-//        rvContacts.layoutManager = LinearLayoutManager(
-//            this.context,
-//            LinearLayoutManager.VERTICAL,
-//            false
-//        )
+        rvContacts.layoutManager = LinearLayoutManager(requireContext())
+        rvContacts.layoutManager = LinearLayoutManager(
+            this.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
     }
 
     private fun recyclerViewEffect() {
@@ -99,9 +100,9 @@ class RecyclerFragment : BaseFragment() {
         snapHelper.attachToRecyclerView(rvContacts)
 
         /*RecyclerView ItemDecoration*/
-        // rvContacts.addItemDecoration(ItemOffsetDecoration(100)) // Whit GridLayoutManager
-        //    rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
-        rvContacts.addItemDecoration(CanvasDrawLine(Color.LTGRAY, 40f))
+     // rvContacts.addItemDecoration(ItemOffsetDecoration(100)) // Whit GridLayoutManager
+         rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
+     //    rvContacts.addItemDecoration(CanvasDrawLine(Color.LTGRAY, 40f))
         // rvContacts.addItemDecoration(MarginItemOffsets(100))
     }
 

@@ -17,5 +17,3 @@ jobs:
 
       - name: Unit tests
         run: bash ./gradlew test
-
- e

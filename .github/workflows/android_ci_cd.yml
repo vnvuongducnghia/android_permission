@@ -1,2 +1,0 @@
-- name: Android CI/CD
-  uses: henrikhorbovyi/Android-CI-CD@v0.0.1-beta5

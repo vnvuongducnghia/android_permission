@@ -55,7 +55,7 @@ class RecyclerFragment : BaseFragment() {
         }
         btnAddMoreClick()
 
-        btnBack.text = "runtest"
+        // btnBack.text = "runtest"
     }
 
     private fun recyclerViewIntData() {

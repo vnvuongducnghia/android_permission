@@ -36,8 +36,8 @@ jobs:
           name: apk
           path: app/build/outputs/apk/debug/app-debug.apk
 
-      - name: run test emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew connectedCheck
+      - name: Android Emulator Runner
+        uses: ReactiveCircus/android-emulator-runner@v2.11.0
+       # with:
+       #   api-level: 29
+       #   script: ./gradlew connectedCheck

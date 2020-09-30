@@ -36,9 +36,6 @@ jobs:
           name: apk
           path: app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Build the app
-        run: ./gralew build
-
       - name: run test emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:

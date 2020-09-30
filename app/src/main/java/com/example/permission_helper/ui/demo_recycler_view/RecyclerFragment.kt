@@ -1,9 +1,7 @@
 package com.example.permission_helper.ui.demo_recycler_view
 
 
-import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
 import android.util.Log
@@ -12,10 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.permission_helper.R
 import com.example.permission_helper.ui.BaseFragment
-import com.example.permission_helper.ui.demo_recycler_view.item_decoration.CanvasDrawLine
 import com.example.permission_helper.ui.demo_recycler_view.item_decoration.DrawableDrawLine
-import com.example.permission_helper.ui.demo_recycler_view.item_decoration.ItemOffsetDecoration
-import com.example.permission_helper.ui.demo_recycler_view.item_decoration.MarginItemOffsets
 import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.ContactViewHolder
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.activity_2.*
@@ -34,8 +29,8 @@ class RecyclerFragment : BaseFragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recycler, container, false)
@@ -55,7 +50,7 @@ class RecyclerFragment : BaseFragment() {
         }
         btnAddMoreClick()
 
-        // btnBack.text = "runtest"
+        btnBack.text = "runtest"
     }
 
     private fun recyclerViewIntData() {
@@ -87,9 +82,9 @@ class RecyclerFragment : BaseFragment() {
         /*LinearLayoutManager*/
         rvContacts.layoutManager = LinearLayoutManager(requireContext())
         rvContacts.layoutManager = LinearLayoutManager(
-            this.context,
-            LinearLayoutManager.VERTICAL,
-            false
+                this.context,
+                LinearLayoutManager.VERTICAL,
+                false
         )
     }
 
@@ -103,9 +98,9 @@ class RecyclerFragment : BaseFragment() {
         snapHelper.attachToRecyclerView(rvContacts)
 
         /*RecyclerView ItemDecoration*/
-     // rvContacts.addItemDecoration(ItemOffsetDecoration(100)) // Whit GridLayoutManager
-         rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
-     //    rvContacts.addItemDecoration(CanvasDrawLine(Color.LTGRAY, 40f))
+        // rvContacts.addItemDecoration(ItemOffsetDecoration(100)) // Whit GridLayoutManager
+        rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
+        //    rvContacts.addItemDecoration(CanvasDrawLine(Color.LTGRAY, 40f))
         // rvContacts.addItemDecoration(MarginItemOffsets(100))
     }
 
@@ -149,26 +144,26 @@ class RecyclerFragment : BaseFragment() {
 
     private fun recyclerViewItemTouch() {
         rvContacts.addOnItemTouchListener(
-            RecyclerTouchListener(this.context!!, rvContacts,
-                object : RecyclerTouchListener.OnClickListener {
-                    override fun onItemClick(view: View, position: Int) {
-                        when {
-                            view.id == R.id.message_button -> {
-                                Log.w("TestLog", "Btn clicked $position")
+                RecyclerTouchListener(this.context!!, rvContacts,
+                        object : RecyclerTouchListener.OnClickListener {
+                            override fun onItemClick(view: View, position: Int) {
+                                when {
+                                    view.id == R.id.message_button -> {
+                                        Log.w("TestLog", "Btn clicked $position")
+                                    }
+                                    view.id == R.id.contact_name -> {
+                                        Log.w("TestLog", "Text clicked $position")
+                                    }
+                                    else -> {
+                                        Log.e("TestLog", "Item clicked $position")
+                                    }
+                                }
                             }
-                            view.id == R.id.contact_name -> {
-                                Log.w("TestLog", "Text clicked $position")
-                            }
-                            else -> {
-                                Log.e("TestLog", "Item clicked $position")
-                            }
-                        }
-                    }
 
-                    override fun onItemLongClick(view: View, position: Int) {
-                        Log.e("TestLog", "Item onLongClick")
-                    }
-                })
+                            override fun onItemLongClick(view: View, position: Int) {
+                                Log.e("TestLog", "Item onLongClick")
+                            }
+                        })
         )
     }
 

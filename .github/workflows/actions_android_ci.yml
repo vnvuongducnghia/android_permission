@@ -28,7 +28,7 @@ jobs:
           java-version: 1.8
 
       - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
+        run: bash ./gradlew build --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v1
@@ -36,8 +36,8 @@ jobs:
           name: apk
           path: app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Android Emulator Runner
-        uses: ReactiveCircus/android-emulator-runner@v2.11.0
-        with:
-          api-level: 29
-          #script: ./gradlew connectedCheck
+     # - name: Android Emulator Runner
+     #   uses: ReactiveCircus/android-emulator-runner@v2.11.0
+     #   with:
+     #     api-level: 29
+     #     script: ./gradlew connectedCheck

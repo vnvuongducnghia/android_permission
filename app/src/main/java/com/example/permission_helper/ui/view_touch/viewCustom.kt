@@ -5,20 +5,17 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
-import android.widget.ImageView
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
-
-class viewCustom : ImageView, View.OnTouchListener, ScaleGestureDetector.OnScaleGestureListener {
+class viewCustom : android.support.v7.widget.AppCompatImageView, View.OnTouchListener, ScaleGestureDetector.OnScaleGestureListener {
 
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
+            context,
+            attrs,
+            defStyleAttr
     )
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
@@ -42,7 +39,7 @@ class viewCustom : ImageView, View.OnTouchListener, ScaleGestureDetector.OnScale
 
     override fun onScale(detector: ScaleGestureDetector?): Boolean {
         println("viewCustom.onScale")
-         
+
         return true
     }
 }

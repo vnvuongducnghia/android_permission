@@ -18,6 +18,7 @@ import com.example.permission_helper.ui.demo_recycler_view.item_decoration.ItemO
 import com.example.permission_helper.ui.demo_recycler_view.item_decoration.MarginItemOffsets
 import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.ContactViewHolder
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
+import kotlinx.android.synthetic.main.activity_2.*
 import kotlinx.android.synthetic.main.fragment_recycler.*
 
 class RecyclerFragment : BaseFragment() {
@@ -53,6 +54,8 @@ class RecyclerFragment : BaseFragment() {
             recyclerViewItemTouch()
         }
         btnAddMoreClick()
+
+        btnBack.text = "runtest"
     }
 
     private fun recyclerViewIntData() {

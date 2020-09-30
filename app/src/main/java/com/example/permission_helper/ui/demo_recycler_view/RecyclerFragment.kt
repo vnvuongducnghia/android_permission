@@ -51,7 +51,6 @@ class RecyclerFragment : BaseFragment() {
         btnAddMoreClick()
 
         btnBack.text = "nghiaTest"
-        eeee
 
     }
 

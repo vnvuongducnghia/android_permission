@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/531022926/Downloads-permission_helper.iml" filepath="$PROJECT_DIR$/.idea/modules/531022926/Downloads-permission_helper.iml" group="permission_helper" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="permission_helper/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-136485247/permission_helper.iml" filepath="$PROJECT_DIR$/.idea/modules/-136485247/permission_helper.iml" group="permission_helper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/permission_helper-app.iml" filepath="$PROJECT_DIR$/.idea/modules/permission_helper-app.iml" group="permission_helper/app" />
     </modules>
   </component>
 </project>

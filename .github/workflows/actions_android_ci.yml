@@ -1,0 +1,33 @@
+name: "Test android-emulator-runner"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    #timeout-minutes: 20
+    strategy:
+      matrix:
+        api-level: [23, 29]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: build, test and lint
+        run: |
+          npm install
+          npm run build
+          npm run lint
+          npm test
+      - name: run action
+        uses: ./
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: default
+          abi: x86
+          headless: true

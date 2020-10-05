@@ -1,8 +1,8 @@
 package com.example.permission_helper.ui.demo_recycler_view
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.example.permission_helper.R
 import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.AvatarViewHolder
 import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.ContactViewHolder

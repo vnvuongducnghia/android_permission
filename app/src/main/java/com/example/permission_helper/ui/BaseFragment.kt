@@ -3,9 +3,9 @@ package com.example.permission_helper.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import android.view.View
 import android.view.animation.Animation
 import com.example.permission_helper.R
@@ -106,10 +106,7 @@ abstract class BaseFragment : Fragment() {
      * Constructor
      */
 
-    /**
-     * override
-     */
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
         if (context is BaseActivity) {

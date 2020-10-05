@@ -6,24 +6,23 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.support.v7.widget.*
-import android.support.v7.widget.RecyclerView.ItemDecoration
 import android.view.View
+import androidx.recyclerview.widget.*
 import com.example.testrecyclerviewdt.util.ScreenUtils
 
 
 object RecyclerViewDividerUtils {
 
-    fun dividerMiddle(context: Context): ItemDecoration = DividerItemDecorationNoLast(context, DividerItemDecoration.VERTICAL)
-    fun divider(context: Context): ItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+    fun dividerMiddle(context: Context): RecyclerView.ItemDecoration = DividerItemDecorationNoLast(context, DividerItemDecoration.VERTICAL)
+    fun divider(context: Context): RecyclerView.ItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
 
-    fun divider(context: Context, height: Int): ItemDecoration {
+    fun divider(context: Context, height: Int): RecyclerView.ItemDecoration {
         val itemDecoration = DividerItemDecorationNoLast(context, DividerItemDecoration.VERTICAL)
         itemDecoration.setDrawable(getDrawableBySize(height))
         return itemDecoration
     }
 
-    fun divider(context: Context, height: Int, color: Int): ItemDecoration {
+    fun divider(context: Context, height: Int, color: Int): RecyclerView.ItemDecoration {
         val itemDecoration = DividerItemDecorationNoLast(context, DividerItemDecoration.VERTICAL)
         itemDecoration.setDrawable(getDrawableBySize(height, color))
         return itemDecoration
@@ -45,27 +44,27 @@ object RecyclerViewDividerUtils {
         return drawable
     }
 
-    fun horizontalSpaceDivider(): ItemDecoration {
+    fun horizontalSpaceDivider(): RecyclerView.ItemDecoration {
         return horizontalSpaceDivider(ScreenUtils.dpToPx(10f))
     }
 
-    fun horizontalSpaceDivider(height: Int): ItemDecoration {
+    fun horizontalSpaceDivider(height: Int): RecyclerView.ItemDecoration {
         return HorizontalSpacingItemDecoration(height)
     }
 
-    fun horizontalSpaceDivider(value: Float): ItemDecoration {
+    fun horizontalSpaceDivider(value: Float): RecyclerView.ItemDecoration {
         return horizontalSpaceDivider(ScreenUtils.dpToPx(value))
     }
 
-    fun gridDivider(): ItemDecoration {
+    fun gridDivider(): RecyclerView.ItemDecoration {
         return SpacingDecoration(ScreenUtils.dpToPx(5f), ScreenUtils.dpToPx(20f), false)
     }
 
-    fun gridBaseDivider(): ItemDecoration {
+    fun gridBaseDivider(): RecyclerView.ItemDecoration {
         return GridDecoration(ScreenUtils.dpToPx(5f), ScreenUtils.dpToPx(20f), ScreenUtils.dpToPx(10f))
     }
 
-    fun gridDivider(horizontallSpacing: Float, verticalSpacing: Float): ItemDecoration {
+    fun gridDivider(horizontallSpacing: Float, verticalSpacing: Float): RecyclerView.ItemDecoration {
         return SpacingDecoration(ScreenUtils.dpToPx(horizontallSpacing), ScreenUtils.dpToPx(verticalSpacing), false)
     }
 
@@ -80,7 +79,8 @@ object RecyclerViewDividerUtils {
         }
     }
 
-    class HorizontalSpacingItemDecoration : ItemDecoration {
+    class HorizontalSpacingItemDecoration :
+        RecyclerView.ItemDecoration {
 
         private var spacing: Int = 0
         private var includeEdge: Boolean = false
@@ -122,7 +122,7 @@ object RecyclerViewDividerUtils {
         }
     }
 
-    class SpacingDecoration(hSpacing: Int, vSpacing: Int, includeEdge: Boolean) : ItemDecoration() {
+    class SpacingDecoration(hSpacing: Int, vSpacing: Int, includeEdge: Boolean) : RecyclerView.ItemDecoration() {
 
         private var mHorizontalSpacing = 0
         private var mVerticalSpacing = 0
@@ -183,7 +183,7 @@ object RecyclerViewDividerUtils {
         }
     }
 
-    class GridDecoration(private val horizontalSpacing: Int, private val verticalSpacing: Int, private val padding: Int) : ItemDecoration() {
+    class GridDecoration(private val horizontalSpacing: Int, private val verticalSpacing: Int, private val padding: Int) : RecyclerView.ItemDecoration() {
 
         private var mPaint: Paint = Paint()
 

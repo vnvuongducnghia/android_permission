@@ -1,9 +1,9 @@
 package com.example.permission_helper.ui.demo_recycler_view.item_decoration
 
 import android.graphics.Rect
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class ItemOffsetDecoration(private val mItemOffset: Int) : RecyclerView.ItemDecoration() {
 

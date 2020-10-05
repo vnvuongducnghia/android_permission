@@ -7,13 +7,13 @@ import android.view.ScaleGestureDetector
 import android.view.View
 
 
-class viewCustom : android.support.v7.widget.AppCompatImageView, View.OnTouchListener, ScaleGestureDetector.OnScaleGestureListener {
+class viewCustom : androidx.appcompat.widget.AppCompatImageView, View.OnTouchListener, ScaleGestureDetector.OnScaleGestureListener {
 
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?) : super(context!!)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-            context,
+        context!!,
             attrs,
             defStyleAttr
     )

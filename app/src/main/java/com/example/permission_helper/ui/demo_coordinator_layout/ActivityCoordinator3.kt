@@ -1,6 +1,6 @@
 package com.example.permission_helper.ui.demo_coordinator_layout
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.permission_helper.R
 

@@ -4,15 +4,20 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.example.permission_helper.R
 
 class DrawableDrawLine(context: Context) : RecyclerView.ItemDecoration() {
     private val mBrush: Drawable = context.resources.getDrawable(R.drawable.divider_blue)
     private val mAlpha: Int = mBrush.alpha
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
         val param = view.layoutParams as RecyclerView.LayoutParams
         val position = param.viewAdapterPosition
         if (position < state.itemCount) {

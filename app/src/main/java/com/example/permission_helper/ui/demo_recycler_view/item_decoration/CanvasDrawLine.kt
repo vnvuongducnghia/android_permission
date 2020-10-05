@@ -3,9 +3,9 @@ package com.example.permission_helper.ui.demo_recycler_view.item_decoration
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
-import android.support.annotation.ColorInt
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.ColorInt
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 class CanvasDrawLine(@ColorInt color: Int, width: Float) : RecyclerView.ItemDecoration() {
     private val mBrush: Paint = Paint()

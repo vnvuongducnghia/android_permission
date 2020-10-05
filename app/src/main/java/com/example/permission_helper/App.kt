@@ -3,7 +3,7 @@ package com.example.permission_helper
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import android.support.multidex.MultiDex
+import androidx.multidex.MultiDex
 import com.example.permission_helper.data.source.local.LocalData
 import com.example.permission_helper.util.CommonUtils
 import com.example.permission_helper.helper.SharedPreferencesHelper

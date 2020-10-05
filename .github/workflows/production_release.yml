@@ -23,7 +23,7 @@ jobs:
         run: bash ./gradlew test
 
       - name: Run Unit Tests
-        run: bash ./gradlew testStagingDebugUnitTest
+        run: bash ./gradlew testStagingDebugUnitTest --stacktrace
 
       - name: Build debug APK
         run: bash ./gradlew assembleDebug --stacktrace

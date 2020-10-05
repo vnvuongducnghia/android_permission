@@ -12,15 +12,40 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+
       - name: Build with gragle
         run: bash ./gradlew build --stacktrace
+
       - name: Unit Tests Results
         uses: actions/upload-artifact@v2
         with:
           name: unit-tests-results
           path: app/build/reports/tests/testDebugUnitTest/index.html
+
+  apk:
+    name: Generate APK
+    run-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+          uses: actions/checkout@v2
+
+      - name: Set up JDK 1.8
+          uses: actions/setup-java@v1
+          with:
+            java-version: 1.8
+
+      - name: Build debug APK
+        run: bash ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artiface@v2
+        with:
+          name: app
+          path: app/build/outputs/apk/debug/app-debug.apk
 

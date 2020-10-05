@@ -1,16 +1,32 @@
+
+# Name workflow
 name: Pull request
+
+# Triggers the workflow on push or pull request.
 on:
+
+  # Trigger push request.
   push:
     branches: [ develop ]
+
+  # Trigger pull request.
   pull_request:
     branches: [ develop ]
+
+# List jobs, can run sequentially or in parallel
 jobs:
+
+  # Job 1
   test:
-    name: Run Unit Tests
-    # runs-on: windows-latest
-    runs-on: ubuntu-latest
+    name: Run Unit Tests  # Job name
+    runs-on: ubuntu-latest  # Environment Runner run Job 1.
+    # or windows-latest, macos-latest
+
+    # List steps, list actions
     steps:
-      - name: Checkout
+
+      # Action 1  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout # Name action 1
         uses: actions/checkout@v2
 
       - name: Set up JDK 1.8

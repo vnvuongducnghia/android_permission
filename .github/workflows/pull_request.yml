@@ -17,5 +17,10 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with gragle
-        run: bash ./gradlew build --stacktrace
+        run: ./gradlew build --stacktrace
+      - name: Unit Tests Results
+        uses: action/upload-artifact@v1
+        with:
+          name: unit-tests-results
+          path: app/build/reports/tests/testDebugUnitTest/index.html
 

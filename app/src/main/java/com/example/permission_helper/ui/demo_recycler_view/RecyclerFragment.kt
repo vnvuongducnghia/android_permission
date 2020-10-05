@@ -50,8 +50,7 @@ class RecyclerFragment : BaseFragment() {
         }
         btnAddMoreClick()
 
-        btnBack.text = "nghiaTest"
-
+        btnBack.text = "runtest"
     }
 
     private fun recyclerViewIntData() {

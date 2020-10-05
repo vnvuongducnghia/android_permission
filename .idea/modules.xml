@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Downloads-permission_helper.iml" filepath="$PROJECT_DIR$/.idea/modules/Downloads-permission_helper.iml" group="permission_helper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Downloads-permission_helper-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Downloads-permission_helper-app.iml" group="permission_helper/app" />
       <module fileurl="file://$PROJECT_DIR$/MyGitHub-permission_helper.iml" filepath="$PROJECT_DIR$/MyGitHub-permission_helper.iml" group="permission_helper" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/permission_helper.iml" filepath="$PROJECT_DIR$/permission_helper.iml" />

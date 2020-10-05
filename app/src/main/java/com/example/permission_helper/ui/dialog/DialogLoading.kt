@@ -5,9 +5,12 @@ import android.content.DialogInterface
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.FragmentManager
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.fragment.app.FragmentManager
 import com.example.permission_helper.R
 import kotlinx.android.synthetic.main.dialog_loading.*
 
@@ -31,12 +34,19 @@ class DialogLoading : BaseDialog() {
         if (dialog.window != null) {
             dialog.window!!.attributes.dimAmount = 0.5f
             dialog.window!!.setBackgroundDrawableResource(R.drawable.background_transparent)
-            dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+            dialog.window!!.setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT
+            )
         }
         return dialog
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.dialog_loading, container, false);
     }
 
@@ -53,20 +63,23 @@ class DialogLoading : BaseDialog() {
         return startedShowing
     }
 
-    override fun show(fm: FragmentManager?, tag: String?) {
+    override fun show(manager: FragmentManager, tag: String?) {
+        super.show(manager, tag)
         mStartMillisecond = System.currentTimeMillis()
         startedShowing = false
         mStopMillisecond = java.lang.Long.MAX_VALUE
         Handler().postDelayed({
             if (mStopMillisecond > System.currentTimeMillis())
-                showDialogAfterDelay(fm, tag)
+                showDialogAfterDelay(manager, tag)
         }, mDelayMillisecond.toLong())
     }
 
     private fun showDialogAfterDelay(fm: FragmentManager?, tag: String?) {
         try {
             startedShowing = true
-            super.show(fm, tag)
+            if (fm != null) {
+                super.show(fm, tag)
+            }
         } catch (e: IllegalStateException) {
             Log.e("Error", e.message)
         }

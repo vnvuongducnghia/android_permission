@@ -4,8 +4,8 @@ import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.AppCompatEditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatEditText
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText

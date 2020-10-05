@@ -1,20 +1,16 @@
 package com.example.permission_helper.ui.dialog
 
 import android.content.Context
-import android.support.v4.app.DialogFragment
-import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
+import androidx.appcompat.app.AppCompatActivity
 import com.example.permission_helper.ui.BaseActivity
 
 abstract class BaseDialogNew : DialogFragment() {
 
     private var baseActivity: BaseActivity? = null
 
-    /**
-     * Attach
-     */
-
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is BaseActivity) {
             val mActivity = context as BaseActivity?
@@ -28,11 +24,8 @@ abstract class BaseDialogNew : DialogFragment() {
         super.onDetach()
     }
 
-    /**
-     * Show
-     */
-
-    override fun show(fm: FragmentManager?, tag: String?) {
+    override fun show(fm: FragmentManager, tag: String?) {
+        super.show(fm, tag)
         val transaction = fm?.beginTransaction()
         val prevFragment = fm?.findFragmentByTag(tag)
         if (transaction != null) {

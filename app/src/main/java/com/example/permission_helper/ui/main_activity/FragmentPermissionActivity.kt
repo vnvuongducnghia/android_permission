@@ -1,9 +1,9 @@
 package com.example.permission_helper.ui.main_activity
 
 import android.content.DialogInterface
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import com.example.permission_helper.R
 import com.example.permission_helper.ui.BaseFragment
 import com.example.permission_helper.ui.demo_recycler_view.RecyclerFragment

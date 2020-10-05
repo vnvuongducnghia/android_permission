@@ -1,7 +1,7 @@
 package com.example.permission_helper.ui.view_touch
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MotionEvent
 import com.example.permission_helper.R
 import kotlinx.android.synthetic.main.activity_view_touch.*

@@ -24,4 +24,3 @@ jobs:
 
       - name: Build Release
         run: bash ./gradlew assembleRelease --stacktrace
-

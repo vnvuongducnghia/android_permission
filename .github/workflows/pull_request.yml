@@ -19,7 +19,7 @@ jobs:
       - name: Build with gragle
         run: ./gradlew build --stacktrace
       - name: Unit Tests Results
-        uses: action/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: unit-tests-results
           path: app/build/reports/tests/testDebugUnitTest/index.html

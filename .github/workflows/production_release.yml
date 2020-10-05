@@ -1,9 +1,9 @@
 name: Build Production Release
 on:
   push:
-    branches: [ master ]
+    branches: [ production_release ]
   pull_request:
-    branches: [ master ]
+    branches: [ production_release ]
 
 jobs:
   apk:

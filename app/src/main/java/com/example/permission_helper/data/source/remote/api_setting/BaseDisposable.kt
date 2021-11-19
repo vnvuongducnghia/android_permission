@@ -85,7 +85,7 @@ class BaseDisposable<T>(var context: Context) {
 
     private fun onFailed(exception: Throwable) {
         if (exception.message != null) {
-            Log.e("Disposable", exception.message)
+            Log.e("Disposable", exception.message!!)
         }
     }
 
@@ -101,7 +101,7 @@ class BaseDisposable<T>(var context: Context) {
         var isIllegalStateException = false
         if (throwable is JsonSyntaxException) {
             isIllegalStateException = throwable.cause is IllegalStateException
-            Log.e("ErrorParseJson", throwable.message)
+            throwable.message?.let { Log.e("ErrorParseJson", it) }
         }
         if (!isIllegalStateException) { //Time Out || DNS Error
             if (throwable is ANError) {

@@ -101,14 +101,14 @@ class DialogLoadingProgress : BaseDialog() {
                 try {
                     dismissAllowingStateLoss()
                 } catch (e: NullPointerException) {
-                    Log.e("Error", if (e.message != null) e.message else "")
+                    if (e.message != null) e.message else ""?.let { Log.e("Error", it) }
                 }
             }, SHOW_MIN_MILLISECOND.toLong())
         } else {
             try {
                 dismissAllowingStateLoss()
             } catch (e: NullPointerException) {
-                Log.e("Error", if (e.message != null) e.message else "")
+                if (e.message != null) e.message else ""?.let { Log.e("Error", it) }
             }
         }
     }
@@ -118,7 +118,7 @@ class DialogLoadingProgress : BaseDialog() {
             try {
                 dismissAllowingStateLoss()
             } catch (e: NullPointerException) {
-                Log.e("Error", if (e.message != null) e.message else "")
+                if (e.message != null) e.message else ""?.let { Log.e("Error", it) }
                 dismiss()
             }
         }, mDelayMillisecond.toLong())

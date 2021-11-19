@@ -81,7 +81,7 @@ class DialogLoading : BaseDialog() {
                 super.show(fm, tag)
             }
         } catch (e: IllegalStateException) {
-            Log.e("Error", e.message)
+            e.message?.let { Log.e("Error", it) }
         }
     }
 
@@ -107,14 +107,14 @@ class DialogLoading : BaseDialog() {
                 try {
                     dismissAllowingStateLoss()
                 } catch (e: NullPointerException) {
-                    Log.e("Error", if (e.message != null) e.message else "")
+                    if (e.message != null) e.message else ""?.let { Log.e("Error", it) }
                 }
             }, SHOW_MIN_MILLISECOND.toLong())
         } else {
             try {
                 dismissAllowingStateLoss()
             } catch (e: NullPointerException) {
-                Log.e("Error", if (e.message != null) e.message else "")
+                if (e.message != null) e.message else ""?.let { Log.e("Error", it) }
             }
         }
     }
@@ -124,7 +124,7 @@ class DialogLoading : BaseDialog() {
             try {
                 dismissAllowingStateLoss()
             } catch (e: NullPointerException) {
-                Log.e("Error", if (e.message != null) e.message else "")
+                if (e.message != null) e.message else ""?.let { Log.e("Error", it) }
                 dismiss()
             }
         }, mDelayMillisecond.toLong())

@@ -12,7 +12,6 @@ import com.example.permission_helper.R
 import com.example.permission_helper.ui.BaseFragment
 import com.example.permission_helper.ui.demo_recycler_view.item_decoration.DrawableDrawLine
 import com.example.permission_helper.ui.demo_recycler_view.view_holder_type.ContactViewHolder
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.fragment_recycler.*
 
 class RecyclerFragment : BaseFragment() {
@@ -65,11 +64,11 @@ class RecyclerFragment : BaseFragment() {
     }
 
     private fun recyclerViewAdapter() {
-        adapterNormal = RecyclerViewAdapterNormal(contacts!!)
-        rvContacts.adapter = adapterNormal
+//        adapterNormal = RecyclerViewAdapterNormal(contacts!!)
+//        rvContacts.adapter = adapterNormal
 
-        /*adapterType = RecyclerViewAdapterType(listAny)
-        rvContacts.adapter = adapterType*/
+        adapterType = RecyclerViewAdapterType(listAny)
+        rvContacts.adapter = adapterType
     }
 
     private fun recyclerViewLayout() {
@@ -90,7 +89,7 @@ class RecyclerFragment : BaseFragment() {
     private fun recyclerViewEffect() {
         /*Animation: jp.wasabeef:recyclerview-animators:2.2.3
         not work with notifyDataSetChanged()*/
-        rvContacts.itemAnimator = SlideInUpAnimator()
+//        rvContacts.itemAnimator = SlideInUpAnimator()
 
         /*RecyclerView Snap Item*/
         val snapHelper = LinearSnapHelper()
@@ -98,7 +97,7 @@ class RecyclerFragment : BaseFragment() {
 
         /*RecyclerView ItemDecoration*/
         // rvContacts.addItemDecoration(ItemOffsetDecoration(100)) // Whit GridLayoutManager
-        rvContacts.addItemDecoration(DrawableDrawLine(this.context!!))
+        rvContacts.addItemDecoration(DrawableDrawLine(requireContext()))
         //    rvContacts.addItemDecoration(CanvasDrawLine(Color.LTGRAY, 40f))
         // rvContacts.addItemDecoration(MarginItemOffsets(100))
     }
@@ -143,7 +142,7 @@ class RecyclerFragment : BaseFragment() {
 
     private fun recyclerViewItemTouch() {
         rvContacts.addOnItemTouchListener(
-            RecyclerTouchListener(this.context!!, rvContacts,
+            RecyclerTouchListener(requireContext(), rvContacts,
                 object : RecyclerTouchListener.OnClickListener {
                     override fun onItemClick(view: View, position: Int) {
                         when {
